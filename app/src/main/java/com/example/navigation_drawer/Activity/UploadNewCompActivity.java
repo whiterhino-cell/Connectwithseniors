@@ -148,8 +148,7 @@ public class UploadNewCompActivity extends AppCompatActivity {
 
         String campus=getIntent().getStringExtra("campus");
 
-
-        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child(campus);
+        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child(campus);
         mRefStorage= FirebaseStorage.getInstance().getReference("Connectwithseniors/").child("compLogo");
     }
 

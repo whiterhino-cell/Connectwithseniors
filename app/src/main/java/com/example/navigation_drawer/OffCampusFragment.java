@@ -129,7 +129,7 @@ public class OffCampusFragment extends Fragment {
         compHMcompHM = new ArrayList<>();
 
 
-        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("off_campus");;
+        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("off_campus");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter=new CampusAdapter(getActivity(), compHMcompHM);
         mRecyclerView.setAdapter(adapter);

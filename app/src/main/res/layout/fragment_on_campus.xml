@@ -3,15 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pic002"
     tools:context=".OnCampusFragment">
 
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Dashboard"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        />
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On Campus"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            />
+        <ImageView
+            android:id="@+id/addPersonOnCampus"
+
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_add"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shape_circle_shape"
+
+            />
+    </RelativeLayout>
 
 </FrameLayout>

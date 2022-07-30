@@ -77,7 +77,7 @@ public class OffCampusFragment extends Fragment {
 
                 try {
                     HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
-//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
+                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
                     compHMcompHM.add(hashMap);
                 }catch (Exception e){
                     Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
@@ -90,7 +90,7 @@ public class OffCampusFragment extends Fragment {
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 try {
                     HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
-//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
+                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
 
                 }catch (Exception e){
                     Log.d(TAG, "onChildAdded: error x : "+e.getMessage());

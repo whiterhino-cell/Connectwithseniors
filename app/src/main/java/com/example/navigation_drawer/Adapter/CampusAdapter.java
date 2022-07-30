@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CampusAdapter extends RecyclerView.Adapter<CampusAdapter.MyViewHolder>{
-    private static final String TAG = "CampusAdapter started";
+//    private static final String TAG = "CampusAdapter started";
 
     private Context mContext;
     private ArrayList<HashMap<String,String>> arrayListHM;
@@ -40,14 +40,14 @@ public class CampusAdapter extends RecyclerView.Adapter<CampusAdapter.MyViewHold
 
         String link=arrayListHM.get(position).get("imageURL");
 
-        Log.d(TAG, "onBindViewHolder: link : "+link);
+//        Log.d(TAG, "onBindViewHolder: link : "+link);
         Picasso.get().load(link).into(holder.imageView);
 
     }
 
     @Override
     public int getItemCount() {
-        Log.d(TAG, "getItemCount: "+arrayListHM.size());
+//        Log.d(TAG, "getItemCount: "+arrayListHM.size());
         return arrayListHM.size();
     }
 

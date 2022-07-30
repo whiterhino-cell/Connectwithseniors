@@ -54,21 +54,21 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment;
                 switch (item.getItemId()){
-                    case R.id.home:
+                    case R.id.homeNV:
                         setTitle("Home");
                         fragment=new HomeFragment();
                         loadFragment(fragment);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.dashboard:
+                    case R.id.onCampusNV:
                         setTitle("Dashboard");
-                        fragment=new DashboardFragment();
+                        fragment=new OnCampusFragment();
                         loadFragment(fragment);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-                    case R.id.about:
+                    case R.id.offCampusNV:
                         setTitle("About");
-                        fragment=new AboutFragment();
+                        fragment=new OffCampusFragment();
                         loadFragment(fragment);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;

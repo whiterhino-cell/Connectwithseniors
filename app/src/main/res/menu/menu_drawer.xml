@@ -6,17 +6,26 @@
     <group
         android:checkableBehavior="single">
         <item
-            android:id="@+id/home"
+            android:id="@+id/homeNV"
             android:title="Home"
             android:icon="@drawable/ic_home"/>
         <item
-            android:id="@+id/dashboard"
-            android:title="Dashboard"
+            android:id="@+id/onCampusNV"
+            android:title="On Campus"
             android:icon="@drawable/ic_dashboard"/>
         <item
-            android:id="@+id/about"
+            android:id="@+id/offCampusNV"
             android:title="About"
             android:icon="@drawable/ic_info"/>
+
+        <item
+            android:id="@+id/logInNV"
+            android:title="Log in/Sign Up"
+            android:icon="@drawable/ic_login"/>
+        <item
+            android:id="@+id/logOutNV"
+            android:title="Log Out"
+            android:icon="@drawable/ic_login"/>
 
     </group>
 

@@ -15,7 +15,7 @@
             android:icon="@drawable/ic_dashboard"/>
         <item
             android:id="@+id/offCampusNV"
-            android:title="About"
+            android:title="Off Campus"
             android:icon="@drawable/ic_info"/>
 
         <item

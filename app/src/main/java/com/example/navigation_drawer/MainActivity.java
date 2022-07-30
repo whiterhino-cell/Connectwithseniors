@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        Fragment fragment;
+        setTitle("Home");
+        fragment=new HomeFragment();
+        loadFragment(fragment);
+        drawerLayout.closeDrawer(GravityCompat.START);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -6,7 +6,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
-    tools:context=".MainActivity">
+    android:background="@drawable/pic002"
+    tools:context=".Activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/zzzzzz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect with your seniors."
+            android:textColor="#fff"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            />
+        <TextView
+            android:layout_below="@+id/zzzzzz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get their interview experiences and preparation strategy for on-campus and off-campus companies!"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            />
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +48,7 @@
             layout="@layout/toolbar"
             />
         <FrameLayout
+            android:layout_marginTop="46dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/frame"/>

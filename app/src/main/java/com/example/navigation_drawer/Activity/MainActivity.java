@@ -1,4 +1,4 @@
-package com.example.navigation_drawer;
+package com.example.navigation_drawer.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,11 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.navigation_drawer.HomeFragment;
+import com.example.navigation_drawer.OffCampusFragment;
+import com.example.navigation_drawer.OnCampusFragment;
+import com.example.navigation_drawer.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,31 +54,25 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        final Fragment[] fragment = {new OnCampusFragment()};
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragment;
                 switch (item.getItemId()){
-                    case R.id.home:
-                        setTitle("Home");
-                        fragment=new HomeFragment();
-                        loadFragment(fragment);
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.homeNV:
+//                        loadFragment(new HomeFragment());
+                        getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
                         break;
-                    case R.id.dashboard:
-                        setTitle("Dashboard");
-                        fragment=new DashboardFragment();
-                        loadFragment(fragment);
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.onCampusNV:
+                        fragment[0] =new OnCampusFragment();
+                        loadFragment(fragment[0]);
                         break;
-                    case R.id.about:
-                        setTitle("About");
-                        fragment=new AboutFragment();
-                        loadFragment(fragment);
-                        drawerLayout.closeDrawer(GravityCompat.START);
+                    case R.id.offCampusNV:
+                        fragment[0] =new OffCampusFragment();
+                        loadFragment(fragment[0]);
                         break;
                 }
-
                 return false;
             }
         });
@@ -84,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame,fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+        setTitle("Connectwithseniors");
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     @Override

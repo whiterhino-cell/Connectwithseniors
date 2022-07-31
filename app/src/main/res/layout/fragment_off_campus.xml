@@ -28,18 +28,21 @@
             >
 
         </androidx.recyclerview.widget.RecyclerView>
+
         <ImageView
             android:id="@+id/addPersonOffCampus"
 
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:src="@drawable/ic_add"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="20dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/shape_circle_shape"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
 
-            />
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_circle_shape"
+            android:src="@drawable/ic_add" />
     </RelativeLayout>
 </FrameLayout>

@@ -5,10 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +32,8 @@ public class StudentJoinFragment extends Fragment {
 
     private DatabaseReference mRef;
     private StudentAdapter adapter;
+    private ImageView addImg;
+    private String student,campus;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,10 +44,28 @@ public class StudentJoinFragment extends Fragment {
         try {
             init(view);
             down(view);
+            click(view);
         }catch (Exception e){
             Log.d(TAG, "onCreateView: error : "+e.getMessage());
         }
         return view;
+    }
+
+    private void click(View view) {
+        addImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                UploadStudentFragment fragment=new UploadStudentFragment();
+                Bundle bundle=new Bundle();
+                bundle.putString("student",student);
+                bundle.putString("campus",campus);
+                fragment.setArguments(bundle);
+                FragmentTransaction transaction=getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.frame2data,fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     private void down(View view) {
@@ -101,11 +123,10 @@ public class StudentJoinFragment extends Fragment {
 
     private void init(View view) {
         Bundle bundle=getArguments();
-        String student=bundle.getString("student");
-        String campus=bundle.getString("campus");
+        student = bundle.getString("student");
+        campus = bundle.getString("campus");
 
-        Log.d(TAG, "onCreateView: student : "+student);
-        Log.d(TAG, "onCreateView: campus  : "+campus);
+        addImg=view.findViewById(R.id.addPersonData);
         mapArrayList=new ArrayList<HashMap<String,String>>();
 
         mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child(campus).child(student).child("details");

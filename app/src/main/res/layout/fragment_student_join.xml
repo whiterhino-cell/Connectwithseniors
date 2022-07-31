@@ -66,7 +66,28 @@
             </androidx.recyclerview.widget.RecyclerView>
 
         </RelativeLayout>
+        <FrameLayout
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_margin="9dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/frame2data"/>
 
+        <ImageView
+            android:id="@+id/addPersonData"
+
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_circle_shape"
+            android:src="@drawable/ic_add" />
     </RelativeLayout>
 
 </FrameLayout>

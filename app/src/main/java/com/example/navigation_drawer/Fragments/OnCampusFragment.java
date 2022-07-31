@@ -68,21 +68,21 @@ public class OnCampusFragment extends Fragment {
 
         HashMap<String,String> hashMap=new HashMap<>();
         hashMap.put("Username","Shubham Sourabh");
-        hashMap.put("Department","Computer Science and Engineering");
+        hashMap.put("Department","CSE");
         hashMap.put("Connect","https://www.linkedin.com/in/shubhamsourabh14/");
         mRef.child(comp).child("details").child(key).setValue(hashMap);
 
         key = UUID.randomUUID().toString();;
         hashMap=new HashMap<>();
         hashMap.put("Username","Aasif Razaa");
-        hashMap.put("Department","Information Technology");
+        hashMap.put("Department","IT");
         hashMap.put("Connect","https://www.linkedin.com/in/aasif-razaa/");
         mRef.child(comp).child("details").child(key).setValue(hashMap);
 
         key = UUID.randomUUID().toString();;
         hashMap=new HashMap<>();
         hashMap.put("Username","Nidhi Jha");
-        hashMap.put("Department","Electronics and Communication Engineering");
+        hashMap.put("Department","ECE");
         hashMap.put("Connect","https://www.linkedin.com/in/nidhi-jha-46b599197/");
         mRef.child(comp).child("details").child(key).setValue(hashMap);
 

@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
         String student=getIntent().getStringExtra("student");
 
-        final Fragment[] fragment = {new OnCampusFragment()};
+//        final Fragment[] fragment = {new OnCampusFragment()};
         if (student!=null) {
             String campus=getIntent().getStringExtra("campus");
             Log.d(TAG, "hell: "+student);
@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+        final Fragment[] fragment = {new OnCampusFragment()};
+//        loadFragment(fragment[0]);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

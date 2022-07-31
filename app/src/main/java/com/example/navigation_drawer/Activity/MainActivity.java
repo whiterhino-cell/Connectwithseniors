@@ -9,15 +9,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.example.navigation_drawer.HomeFragment;
-import com.example.navigation_drawer.OffCampusFragment;
-import com.example.navigation_drawer.OnCampusFragment;
+import com.example.navigation_drawer.Fragments.OffCampusFragment;
+import com.example.navigation_drawer.Fragments.OnCampusFragment;
+import com.example.navigation_drawer.Fragments.StudentJoinFragment;
+import com.example.navigation_drawer.Fragments.UploadNewCompFragment;
 import com.example.navigation_drawer.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -53,9 +53,22 @@ public class MainActivity extends AppCompatActivity {
                 toolbar,R.string.nav_drawer_open,R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        String student=getIntent().getStringExtra("student");
 
         final Fragment[] fragment = {new OnCampusFragment()};
+        if (student!=null) {
+            String campus=getIntent().getStringExtra("campus");
+            Log.d(TAG, "hell: "+student);
+            Log.d(TAG, "hell: "+campus);
+            StudentJoinFragment fragment1=new StudentJoinFragment();
+            Bundle bundle=new Bundle();
+            bundle.putString("student",student);
+            bundle.putString("campus",campus);
+            fragment1.setArguments(bundle);
+            loadFragment(fragment1);
 
+
+        }
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -63,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.homeNV:
 //                        loadFragment(new HomeFragment());
                         getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case R.id.onCampusNV:
                         fragment[0] =new OnCampusFragment();

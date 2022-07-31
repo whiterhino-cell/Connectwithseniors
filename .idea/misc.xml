@@ -7,7 +7,7 @@
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/drawable/ic_home.xml" value="0.121" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/drawable/ic_info.xml" value="0.121" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/drawable/shape_circle_shape.xml" value="0.1" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/fragment_about.xml" value="0.25" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/fragment_home.xml" value="0.25" />
@@ -16,22 +16,35 @@
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/fragment_on_campus.xml" value="0.25" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/fragment_upload_new_comp.xml" value="0.25" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/header.xml" value="0.20652173913043478" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/list_item.xml" value="0.18177083333333333" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/layout/toolbar.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/jayant/AndroidStudioProjects/navigation_drawer/app/src/main/res/menu/menu_drawer.xml" value="0.25" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/drawable-v24/ic_baseline_android_24.xml" value="0.2535" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/drawable-v24/ic_image_search.xml" value="0.1" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/activity_main.xml" value="0.14945652173913043" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/activity_upload_new_comp.xml" value="0.25" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/fragment_home.xml" value="0.2" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/fragment_main.xml" value="0.14945652173913043" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/fragment_off_campus.xml" value="0.14945652173913043" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/fragment_on_campus.xml" value="0.1" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/fragment_upload_new_comp.xml" value="0.1" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/header.xml" value="0.1" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/list_item.xml" value="0.25" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/layout/toolbar.xml" value="0.14945652173913043" />
-        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/04/navigation_drawer/app/src/main/res/menu/menu_drawer.xml" value="0.1" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/drawable/ic_add.xml" value="0.2335" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/drawable/ic_dashboard.xml" value="0.2335" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/drawable/shape_circle_shape.xml" value="0.2335" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/fragment_main.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/fragment_off_campus.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/fragment_on_campus.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/fragment_upload_new_comp.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/header.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/layout/toolbar.xml" value="0.182518115942029" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/menu/menu_drawer.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/03/navigation_drawer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.156" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/drawable-v24/ic_person.xml" value="0.1" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/activity_upload_new_comp.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_home.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_off_campus.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_on_campus.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_student_join.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/fragment_upload_new_comp.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/header.xml" value="0.25" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/list_item.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/list_item_student.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/Users/jayant/AndroidStudioProjects/sucess/05/navigation_drawer/app/src/main/res/menu/menu_drawer.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

@@ -1,4 +1,4 @@
-package com.example.navigation_drawer;
+package com.example.navigation_drawer.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import android.widget.ImageView;
 
 import com.example.navigation_drawer.Activity.UploadNewCompActivity;
 import com.example.navigation_drawer.Adapter.CampusAdapter;
+import com.example.navigation_drawer.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,10 +26,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.UUID;
 
-public class OnCampusFragment extends Fragment {
-    private static final String TAG = "OnCampFragment started";
+public class OffCampusFragment extends Fragment {
+    private static final String TAG = "OffCamFragment started";
 
     private ArrayList<String> compAL;
     private ArrayList<HashMap<String,String>> compHMcompHM;
@@ -41,59 +41,29 @@ public class OnCampusFragment extends Fragment {
     private ChildEventListener mChildListener;
     private String cat;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_on_campus, container, false);
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_off_campus, container, false);
         try {
             init(view);
             downProduct();
             click(view);
-//            up();
         }catch (Exception e){
             Log.d(TAG, "onCreateView: error : "+e.getMessage());
         }
 
-
-//        up();
-
         return view;
     }
-
-    private void up() {
-        String key = UUID.randomUUID().toString();;
-        String comp="genpact";
-
-        HashMap<String,String> hashMap=new HashMap<>();
-        hashMap.put("Username","Shubham Sourabh");
-        hashMap.put("Department","Computer Science and Engineering");
-        hashMap.put("Connect","https://www.linkedin.com/in/shubhamsourabh14/");
-        mRef.child(comp).child("details").child(key).setValue(hashMap);
-
-        key = UUID.randomUUID().toString();;
-    hashMap=new HashMap<>();
-        hashMap.put("Username","Aasif Razaa");
-        hashMap.put("Department","Information Technology");
-        hashMap.put("Connect","https://www.linkedin.com/in/aasif-razaa/");
-        mRef.child(comp).child("details").child(key).setValue(hashMap);
-
-        key = UUID.randomUUID().toString();;
-    hashMap=new HashMap<>();
-        hashMap.put("Username","Nidhi Jha");
-        hashMap.put("Department","Electronics and Communication Engineering");
-        hashMap.put("Connect","https://www.linkedin.com/in/nidhi-jha-46b599197/");
-        mRef.child(comp).child("details").child(key).setValue(hashMap);
-
-
-    }
-
     private void click(View view) {
-        view.findViewById(R.id.addPersonOnCampus).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.addPersonOffCampus).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: clicked off camp");
                 Intent intent=new Intent(getActivity(), UploadNewCompActivity.class);
-                intent.putExtra("campus", "on_campus");
+                intent.putExtra("campus", "off_campus");
                 startActivity(intent);
             }
         });
@@ -109,18 +79,6 @@ public class OnCampusFragment extends Fragment {
                 try {
                     HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
                     Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
-//                    hashMap.remove("details");
-//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
-//                    Log.d(TAG, "onChildAdded: hashMap : "+((HashMap<?, ?>) snapshot.getValue()).get("details")+"\n\n.");
-                    if (hashMap.get("details")!=null){
-                        HashMap<String,HashMap<String ,String >> hashMapHashMap= (HashMap<String, HashMap<String, String>>) ((HashMap<?, ?>)snapshot.getValue()).get("details");
-                        Log.d(TAG, "onChildAdded: "+hashMapHashMap);
-                        ArrayList<HashMap<String ,String>> arrayList=new ArrayList<>();
-                        for (String obj:hashMapHashMap.keySet()){
-                            arrayList.add(hashMapHashMap.get(obj));
-                        }
-                        Log.d(TAG, "onChildAdded: ::"+arrayList+"\n.");
-                    }
                     compHMcompHM.add(hashMap);
                 }catch (Exception e){
                     Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
@@ -143,7 +101,11 @@ public class OnCampusFragment extends Fragment {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
+//                ProductOg productOg = snapshot.getValue(ProductOg.class);
+//                String pdtUrl=productOg.getPdtUrl();
+//
+//                compAL.remove(pdtUrl);
+//                mDataListHM.remove(pdtUrl);
                 adapter.notifyDataSetChanged();
             }
 
@@ -162,14 +124,14 @@ public class OnCampusFragment extends Fragment {
     }
 
     private void init(View view) {
-        mRecyclerView=view.findViewById(R.id.homeFullRecyclerView);
+        mRecyclerView=view.findViewById(R.id.homeFullRecyclerView2);
 
         compAL=new ArrayList<>();
         compHMcompHM = new ArrayList<>();
 
-        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("on_campus");
+        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("off_campus");
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter=new CampusAdapter(getActivity(), compHMcompHM);
+        adapter=new CampusAdapter(getActivity(), compHMcompHM,"off_campus");
         mRecyclerView.setAdapter(adapter);
     }
 

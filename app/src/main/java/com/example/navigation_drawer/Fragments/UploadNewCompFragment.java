@@ -1,4 +1,4 @@
-package com.example.navigation_drawer;
+package com.example.navigation_drawer.Fragments;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.navigation_drawer.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
@@ -64,16 +65,12 @@ public class UploadNewCompFragment extends Fragment {
         }catch (Exception e){
             Log.d(TAG, "onCreateView: error :"+e.getMessage());
         }
-
-
-
         return view;
     }
 
     private void click(View view) {
         productPicUploadImg.setOnClickListener(this::dpUpload);
         productSubmitBtn.setOnClickListener(this::uploadProduct);
-
     }
 
     private void dpUpload(View view) {
@@ -131,15 +128,13 @@ public class UploadNewCompFragment extends Fragment {
         }catch (Exception e){
             Log.d(TAG, "uploadProduct: error : "+e.getMessage());
         }
-
-
     }
 
 
     private void init(View view) {
 
 
-          }
+    }
 
 
     //for uploading image

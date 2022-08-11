@@ -22,15 +22,11 @@
 
 
         <!-- TODO: Update blank fragment layout -->
-        <androidx.recyclerview.widget.RecyclerView
+        <GridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:id="@+id/homeFullRecyclerView"
-            >
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:id="@+id/grid_view_on_campus"
+            android:numColumns="2"/>
         <ImageView
             android:id="@+id/addPersonOnCampus"
 

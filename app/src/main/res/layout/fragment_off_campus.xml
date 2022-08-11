@@ -19,16 +19,11 @@
             android:gravity="center"
             android:layout_centerInParent="true"
             />
-        <androidx.recyclerview.widget.RecyclerView
+        <GridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:id="@+id/homeFullRecyclerView2"
-            >
-
-        </androidx.recyclerview.widget.RecyclerView>
-
+            android:id="@+id/grid_view_off_campus"
+            android:numColumns="2"/>
         <ImageView
             android:id="@+id/addPersonOffCampus"
 

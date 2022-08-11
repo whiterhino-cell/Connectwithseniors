@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("campus",campus);
             fragment1.setArguments(bundle);
             loadFragment(fragment1);
+            setTitle("Connectwithseniors");
 
 
         }

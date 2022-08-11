@@ -13,8 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.navigation_drawer.Activity.MainActivity;
 import com.example.navigation_drawer.Activity.UploadNewCompActivity;
 import com.example.navigation_drawer.Adapter.CampusAdapter;
 import com.example.navigation_drawer.R;
@@ -40,7 +44,7 @@ public class OffCampusFragment extends Fragment {
     private DatabaseReference mRef;
     private ChildEventListener mChildListener;
     private String cat;
-
+    GridView gridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,6 +71,21 @@ public class OffCampusFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                Toast.makeText(getActivity(), "You Clicked "+ (position+1), Toast.LENGTH_SHORT).show();
+//                Log.d(TAG, "onClick: "+name);
+                String name=compHMcompHM.get(position).get("name");
+                Intent intent=new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("student",name);
+                intent.putExtra("campus", "on_campus");
+//                intent.putExtra("comp", campus);
+//                intent.putExtra("getPrice", productOg.getPrice());
+                getActivity().startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -83,7 +102,6 @@ public class OffCampusFragment extends Fragment {
                 }catch (Exception e){
                     Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
                 }
-
                 adapter.notifyDataSetChanged();
             }
 
@@ -124,15 +142,16 @@ public class OffCampusFragment extends Fragment {
     }
 
     private void init(View view) {
-        mRecyclerView=view.findViewById(R.id.homeFullRecyclerView2);
+        gridView=view.findViewById(R.id.grid_view_off_campus);
 
         compAL=new ArrayList<>();
         compHMcompHM = new ArrayList<>();
 
         mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("off_campus");
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter=new CampusAdapter(getActivity(), compHMcompHM,"off_campus");
-        mRecyclerView.setAdapter(adapter);
+//        mRecyclerView.setAdapter(adapter);
+        gridView.setAdapter(adapter);
     }
 
 }

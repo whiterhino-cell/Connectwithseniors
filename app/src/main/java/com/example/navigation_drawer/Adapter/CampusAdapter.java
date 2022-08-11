@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -23,67 +24,53 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class CampusAdapter extends RecyclerView.Adapter<CampusAdapter.MyViewHolder>{
+public class CampusAdapter extends BaseAdapter {
     private static final String TAG = "CampusAdapter started";
 
-    private Context mContext;
-    private ArrayList<HashMap<String,String>> arrayListHM;
+    private Context context;
+    private ArrayList<HashMap<String,String>> compHMcompHM;
     private String campus;
+    private LayoutInflater inflater;
+
 
     public CampusAdapter(Context mContext, ArrayList<HashMap<String,String>> arrayListHM,String campus) {
-        this.mContext = mContext;
-        this.arrayListHM = arrayListHM;
+        this.context = mContext;
+        this.compHMcompHM = arrayListHM;
         this.campus= campus;
     }
-
-    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
-
-        return new MyViewHolder(view);
+    public int getCount() {
+        Log.d(TAG, "getCount: "+compHMcompHM.size());
+        return compHMcompHM.size();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-
-        String link=arrayListHM.get(position).get("imageURL");
-
-//        Log.d(TAG, "onBindViewHolder: link : "+link);
-        Picasso.get().load(link).into(holder.imageView);
-        click(holder,position);
-    }
-
-    private void click(MyViewHolder holder, int position) {
-        String name=arrayListHM.get(position).get("name");
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: "+name);
-                Intent intent=new Intent(mContext, MainActivity.class);
-                intent.putExtra("student",name);
-                intent.putExtra("campus", campus);
-//                intent.putExtra("comp", campus);
-//                intent.putExtra("getPrice", productOg.getPrice());
-                mContext.startActivity(intent);
-
-//                drawerLayout.closeDrawer(GravityCompat.START);
-            }
-        });
+    public Object getItem(int i) {
+        return null;
     }
 
     @Override
-    public int getItemCount() {
-//        Log.d(TAG, "getItemCount: "+arrayListHM.size());
-        return arrayListHM.size();
+    public long getItemId(int i) {
+        return 0;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-
-        ImageView imageView;
-        public MyViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView=itemView.findViewById(R.id.imagePdt);
+    @Override
+    public View getView(int position, View view, ViewGroup parent) {
+        if (inflater==null){
+            inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
+        if (view==null){
+            view=inflater.inflate(R.layout.list_item,null);
+        }
+        ImageView imageView=view.findViewById(R.id.imagePdt);
+        String link=compHMcompHM.get(position).get("imageURL");
+
+        Picasso.get().load(link).into(imageView);
+
+//        TextView textView=view.findViewById(R.id.textView);
+
+//        imageView.setImageResource(numImg[position]);
+//        textView.setText(numWord[position]);
+        return view;
     }
 }

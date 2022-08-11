@@ -13,8 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.navigation_drawer.Activity.MainActivity;
 import com.example.navigation_drawer.Activity.UploadNewCompActivity;
 import com.example.navigation_drawer.Adapter.CampusAdapter;
 import com.example.navigation_drawer.R;
@@ -41,7 +45,7 @@ public class OnCampusFragment extends Fragment {
     private DatabaseReference mRef;
     private ChildEventListener mChildListener;
     private String cat;
-
+    GridView gridView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -85,8 +89,6 @@ public class OnCampusFragment extends Fragment {
         hashMap.put("Department","ECE");
         hashMap.put("Connect","https://www.linkedin.com/in/nidhi-jha-46b599197/");
         mRef.child(comp).child("details").child(key).setValue(hashMap);
-
-
     }
 
     private void click(View view) {
@@ -99,6 +101,21 @@ public class OnCampusFragment extends Fragment {
             }
         });
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//                Toast.makeText(getActivity(), "You Clicked "+ (position+1), Toast.LENGTH_SHORT).show();
+//                Log.d(TAG, "onClick: "+name);
+                String name=compHMcompHM.get(position).get("name");
+                Intent intent=new Intent(getActivity(), MainActivity.class);
+                intent.putExtra("student",name);
+                intent.putExtra("campus", "on_campus");
+//                intent.putExtra("comp", campus);
+//                intent.putExtra("getPrice", productOg.getPrice());
+                getActivity().startActivity(intent);
+
+            }
+        });
     }
 
     private void downProduct() {
@@ -107,22 +124,25 @@ public class OnCampusFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                sssr(snapshot);
+//                sssr(snapshot);
                 try {
+//                    HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
+//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
+////                    hashMap.remove("details");
+////                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
+////                    Log.d(TAG, "onChildAdded: hashMap : "+((HashMap<?, ?>) snapshot.getValue()).get("details")+"\n\n.");
+//                    if (hashMap.get("details")!=null){
+//                        HashMap<String,HashMap<String ,String >> hashMapHashMap= (HashMap<String, HashMap<String, String>>) ((HashMap<?, ?>)snapshot.getValue()).get("details");
+//                        Log.d(TAG, "onChildAdded: "+hashMapHashMap);
+//                        ArrayList<HashMap<String ,String>> arrayList=new ArrayList<>();
+//                        for (String obj:hashMapHashMap.keySet()){
+//                            arrayList.add(hashMapHashMap.get(obj));
+//                        }
+//                        Log.d(TAG, "onChildAdded: ::"+arrayList+"\n.");
+//                    }
+//                    compHMcompHM.add(hashMap);
                     HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
                     Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
-//                    hashMap.remove("details");
-//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
-//                    Log.d(TAG, "onChildAdded: hashMap : "+((HashMap<?, ?>) snapshot.getValue()).get("details")+"\n\n.");
-                    if (hashMap.get("details")!=null){
-                        HashMap<String,HashMap<String ,String >> hashMapHashMap= (HashMap<String, HashMap<String, String>>) ((HashMap<?, ?>)snapshot.getValue()).get("details");
-                        Log.d(TAG, "onChildAdded: "+hashMapHashMap);
-                        ArrayList<HashMap<String ,String>> arrayList=new ArrayList<>();
-                        for (String obj:hashMapHashMap.keySet()){
-                            arrayList.add(hashMapHashMap.get(obj));
-                        }
-                        Log.d(TAG, "onChildAdded: ::"+arrayList+"\n.");
-                    }
                     compHMcompHM.add(hashMap);
                 }catch (Exception e){
                     Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
@@ -163,20 +183,20 @@ public class OnCampusFragment extends Fragment {
 
     }
 
-    private void sssr(DataSnapshot snapshot) {
-
-    }
+//    private void sssr(DataSnapshot snapshot) {
+//
+//    }
 
     private void init(View view) {
-        mRecyclerView=view.findViewById(R.id.homeFullRecyclerView);
+        gridView=view.findViewById(R.id.grid_view_on_campus);
 
         compAL=new ArrayList<>();
         compHMcompHM = new ArrayList<>();
 
         mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("on_campus");
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter=new CampusAdapter(getActivity(), compHMcompHM,"on_campus");
-        mRecyclerView.setAdapter(adapter);
+        gridView.setAdapter(adapter);
     }
 
 }

@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingBottom="10dp"
     android:gravity="center"
 
 
@@ -15,34 +15,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintCircleRadius="30dp"
-        app:cardCornerRadius="6dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="6dp"
         >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            >
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            android:id="@+id/imagePdt"
+            android:src="@drawable/ic_baseline_android_24"
+            android:scaleType="fitXY"
 
-            <RelativeLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:id="@+id/imageLayout"
-                >
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:id="@+id/imagePdt"
-                    android:src="@drawable/ic_baseline_android_24"
-                    android:scaleType="fitXY"
+            />
 
-                    />
-            </RelativeLayout>
-
-
-
-        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

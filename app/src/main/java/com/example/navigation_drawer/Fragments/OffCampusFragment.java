@@ -79,7 +79,7 @@ public class OffCampusFragment extends Fragment {
                 String name=compHMcompHM.get(position).get("name");
                 Intent intent=new Intent(getActivity(), MainActivity.class);
                 intent.putExtra("student",name);
-                intent.putExtra("campus", "on_campus");
+                intent.putExtra("campus", "off_campus");
 //                intent.putExtra("comp", campus);
 //                intent.putExtra("getPrice", productOg.getPrice());
                 getActivity().startActivity(intent);

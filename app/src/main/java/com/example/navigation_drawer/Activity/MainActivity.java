@@ -10,20 +10,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.navigation_drawer.Fragments.HomeFragment;
 import com.example.navigation_drawer.Fragments.OffCampusFragment;
 import com.example.navigation_drawer.Fragments.OnCampusFragment;
 import com.example.navigation_drawer.Fragments.StudentJoinFragment;
@@ -74,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate2: "+e.getMessage());
         }
         try {
-//            click();
+            click();
         }catch (Exception e){
             Log.d(TAG, "onCreate3x: "+e.getMessage());
         }
@@ -87,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 signIn();
                 Log.d(TAG, "click: ");
-//                google_img.setVisibility(View.GONE);
             }
         });
     }
@@ -95,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     private void frag() {
         String student=getIntent().getStringExtra("student");
 
-//        final Fragment[] fragment = {new OnCampusFragment()};
         if (student!=null) {
             String campus=getIntent().getStringExtra("campus");
             Log.d(TAG, "hell: "+student);
@@ -107,66 +101,55 @@ public class MainActivity extends AppCompatActivity {
             fragment1.setArguments(bundle);
             loadFragment(fragment1);
             setTitle("Connectwithseniors");
-
-
         }
+
         final Fragment[] fragment = {new OnCampusFragment()};
-//        loadFragment(fragment[0]);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Log.d(TAG, "onNavigationItemSelected: item : "+item);
                 FirebaseUser user =mAuth.getCurrentUser();
-//                if (user==null)
-//                    Log.d(TAG, "onNavigationItemSelected: name : null");
-//                else
-//                    Log.d(TAG, "onNavigationItemSelected: name : "+mAuth.getCurrentUser().getDisplayName());
+
                 switch (item.getItemId()){
                     case R.id.homeNV:
 //                        loadFragment(new HomeFragment());
-//                        if (user==null){
-//                            signIn();
-//                        }else {
-                            getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
-                            drawerLayout.closeDrawer(GravityCompat.START);
-
-//                        }
+                        getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
+                        drawerLayout.closeDrawer(GravityCompat.START);
 
                         break;
                     case R.id.onCampusNV:
-//                        if (user==null){
-//                            signIn();
-//                        }else {
-                            fragment[0] =new OnCampusFragment();
+                        if (user==null){
+                            Toast.makeText(MainActivity.this, "Please Login to continue", Toast.LENGTH_SHORT).show();
+                            signIn();
+                        }else {
+                            fragment[0] = new OnCampusFragment();
                             loadFragment(fragment[0]);
-//                        }
-
+                        }
                         break;
                     case R.id.offCampusNV:
-//                        if (user==null){
-//                            signIn();
-//                        }else {
-                            fragment[0] =new OffCampusFragment();
+                        if (user==null){
+                            Toast.makeText(MainActivity.this, "Please Login to continue", Toast.LENGTH_SHORT).show();
+                            signIn();
+                        }else {
+                            fragment[0] = new OffCampusFragment();
                             loadFragment(fragment[0]);
-//                        }
-
+                        }
                         break;
-                    case R.id.logInNV:
+                    case R.id.logOutNV:
                         GoogleSignInAccount account=GoogleSignIn.getLastSignedInAccount(MainActivity.this);
-                        Log.d(TAG, "onNavigationItemSelected: item : "+item);
                         try {
-                            if (item.toString().equals("Log in/Sign Up")){
-                                signIn();
-                                item.setTitle("Log Out");
+                            if (user==null){
+                                Toast.makeText(MainActivity.this, "You are not logged in", Toast.LENGTH_SHORT).show();
                             }else {
-                                item.setTitle("Log in/Sign Up");
                                 mAuth.signOut();
                                 if (mAuth.getCurrentUser()==null){
                                     google_img.setVisibility(View.VISIBLE);
+                                    getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
+                                    drawerLayout.closeDrawer(GravityCompat.START);
+                                    Toast.makeText(MainActivity.this, "You have been logged out", Toast.LENGTH_SHORT).show();
                                 }
                             }
-//                            item.setTitle("hi");
                         }catch (Exception e){
                             Log.d(TAG, "onNavigationItemSelected: error : "+e.getMessage());
                         }
@@ -199,32 +182,9 @@ public class MainActivity extends AppCompatActivity {
         gso= new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail().requestIdToken(getString(R.string.default_web_client_id)).build();
         gsc= GoogleSignIn.getClient(this,gso);
-//        Menu menu=findViewById(R.id.selectItem);
-//        Menu menu = toolbar.getMenu();
-//        MenuItem menuItem = menu.findItem(R.id.logInNV);
-//        MenuItem menuItem = ((Toolbar)findViewById(R.id.toolbar)).getMenu().findItem(R.id.logInNV);
-
-//        Log.d(TAG, "init: menuItem : "+menu);
-//        Log.d(TAG, "init: menuItem : "+menuItem);
-//        menuItem.setTitle("New title");
-
-//        LayoutInflater inflater=(LayoutInflater) MainActivity.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        View view=inflater.inflate(R.layout.header,null);
         google_img=findViewById(R.id.google_login);
-//        TextView textView=view.findViewById(R.id ew.getText());
-//        google_img.setVisibility(View.INVISIBLE);
-
-//        if (mAuth.getCurrentUser()!=null){
-//            google_img.setVisibility(View.INVISIBLE);
-//        }
-        google_img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
-                Log.d(TAG, "click: ");
-            }
-        });
-
+        if (mAuth.getCurrentUser()!=null)
+            google_img.setVisibility(View.INVISIBLE);
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
@@ -233,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "user logged in", Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "onComplete: user logged in");
+                    Toast.makeText(MainActivity.this, account.getDisplayName()+" logged in", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onComplete: "+account.getDisplayName()+" logged in");
                     FirebaseUser user=mAuth.getCurrentUser();
                     if (mAuth.getCurrentUser()!=null){
                         google_img.setVisibility(View.INVISIBLE);

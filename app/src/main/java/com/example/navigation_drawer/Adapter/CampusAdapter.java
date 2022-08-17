@@ -1,9 +1,6 @@
 package com.example.navigation_drawer.Adapter;
 
-import static java.security.AccessController.getContext;
-
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.GravityCompat;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.navigation_drawer.Activity.MainActivity;
 import com.example.navigation_drawer.R;
 import com.squareup.picasso.Picasso;
 

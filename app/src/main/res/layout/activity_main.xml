@@ -12,6 +12,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/google_login"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/google_login"
+            android:layout_centerHorizontal="true"
+            />
         <TextView
             android:id="@+id/zzzzzz"
             android:layout_width="wrap_content"

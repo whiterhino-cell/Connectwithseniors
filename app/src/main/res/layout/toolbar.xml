@@ -9,5 +9,11 @@
     android:background="@color/colorPrimary"
     >
 
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/ic_c"
+        android:layout_gravity="right"
+        />
 
 </androidx.appcompat.widget.Toolbar>

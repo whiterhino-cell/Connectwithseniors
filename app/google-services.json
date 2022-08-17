@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:91798321159:android:48118befd8cc4ef092d2a2",
+        "android_client_info": {
+          "package_name": "com.example.grid_view"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91798321159-gk8afn1qod2kiobv6icqmadue99br8db.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grid_view",
+            "certificate_hash": "24a65c7eb8e43dbde44ae9e27582b2c84c895236"
+          }
+        },
+        {
+          "client_id": "91798321159-7rborj94dhft8r53b43uv1v64g7ublqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7vii_ykthhzH94ctXUXOkU721YAbZCiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91798321159-7rborj94dhft8r53b43uv1v64g7ublqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:91798321159:android:350ad6baab76d0bc92d2a2",
         "android_client_info": {
           "package_name": "com.example.learn_firebase_multipleuser"
@@ -51,6 +88,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "91798321159-jepl8irv8ad0hcjh15fkl0inp8pevjup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.navigation_drawer",
+            "certificate_hash": "24a65c7eb8e43dbde44ae9e27582b2c84c895236"
+          }
+        },
         {
           "client_id": "91798321159-7rborj94dhft8r53b43uv1v64g7ublqc.apps.googleusercontent.com",
           "client_type": 3

@@ -2,9 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="nav_view"
+
     >
     <group
-        android:checkableBehavior="single">
+        android:checkableBehavior="single"
+        android:id="@+id/selectItem"
+        >
         <item
             android:id="@+id/homeNV"
             android:title="Home"
@@ -19,11 +22,7 @@
             android:icon="@drawable/ic_info"/>
         <item
             android:id="@+id/logInNV"
-            android:title="Log in/Sign Up"
-            android:icon="@drawable/ic_login"/>
-        <item
-            android:id="@+id/logOutNV"
-            android:title="Log Out"
+            android:title="Log out"
             android:icon="@drawable/ic_login"/>
 
     </group>

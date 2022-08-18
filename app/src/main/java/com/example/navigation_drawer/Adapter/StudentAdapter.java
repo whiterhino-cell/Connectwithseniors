@@ -2,6 +2,8 @@ package com.example.navigation_drawer.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +60,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
         holder.connectAd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: connect : ");
+                String link=hashMap.get("Connect");
+
+                Uri uri = Uri.parse(link); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                mContext.startActivity(intent);
+                Log.d(TAG, "onClick: connect : "+link);
             }
         });
 

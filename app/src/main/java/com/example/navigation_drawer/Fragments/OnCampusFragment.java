@@ -151,14 +151,14 @@ public class OnCampusFragment extends Fragment {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                try {
-                    HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
-                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
-
-                }catch (Exception e){
-                    Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
-                }
-                adapter.notifyDataSetChanged();
+//                try {
+//                    HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
+//                    Log.d(TAG, "onChildAdded: hashMap : "+hashMap);
+//
+//                }catch (Exception e){
+//                    Log.d(TAG, "onChildAdded: error x : "+e.getMessage());
+//                }
+//                adapter.notifyDataSetChanged();
             }
 
             @Override

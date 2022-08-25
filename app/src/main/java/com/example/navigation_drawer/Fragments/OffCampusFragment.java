@@ -32,22 +32,16 @@ import java.util.HashMap;
 public class OffCampusFragment extends Fragment {
     private static final String TAG = "OffCamFragment started";
 
-    private ArrayList<String> compAL;
     private ArrayList<HashMap<String,String>> compHMcompHM;
 
-    private ImageView addProductImg;
-    private RecyclerView mRecyclerView;
     private CampusAdapter adapter;
 
     private DatabaseReference mRef;
-    private ChildEventListener mChildListener;
-    private String cat;
     GridView gridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_off_campus, container, false);
         try {
             init(view);
@@ -72,14 +66,11 @@ public class OffCampusFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                Toast.makeText(getActivity(), "You Clicked "+ (position+1), Toast.LENGTH_SHORT).show();
-//                Log.d(TAG, "onClick: "+name);
+
                 String name=compHMcompHM.get(position).get("name");
                 Intent intent=new Intent(getActivity(), MainActivity.class);
                 intent.putExtra("student",name);
                 intent.putExtra("campus", "off_campus");
-//                intent.putExtra("comp", campus);
-//                intent.putExtra("getPrice", productOg.getPrice());
                 getActivity().startActivity(intent);
 
             }
@@ -89,7 +80,7 @@ public class OffCampusFragment extends Fragment {
 
     private void downProduct() {
 
-        mChildListener=new ChildEventListener() {
+        ChildEventListener mChildListener=new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -117,11 +108,7 @@ public class OffCampusFragment extends Fragment {
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//                ProductOg productOg = snapshot.getValue(ProductOg.class);
-//                String pdtUrl=productOg.getPdtUrl();
-//
-//                compAL.remove(pdtUrl);
-//                mDataListHM.remove(pdtUrl);
+
                 adapter.notifyDataSetChanged();
             }
 
@@ -142,13 +129,10 @@ public class OffCampusFragment extends Fragment {
     private void init(View view) {
         gridView=view.findViewById(R.id.grid_view_off_campus);
 
-        compAL=new ArrayList<>();
         compHMcompHM = new ArrayList<>();
 
         mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child("off_campus");
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter=new CampusAdapter(getActivity(), compHMcompHM,"off_campus");
-//        mRecyclerView.setAdapter(adapter);
         gridView.setAdapter(adapter);
     }
 

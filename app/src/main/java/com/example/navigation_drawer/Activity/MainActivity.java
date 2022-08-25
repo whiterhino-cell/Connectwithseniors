@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             init();
-
         }catch (Exception e){
             Log.d(TAG, "onCreate1: "+e.getMessage());
         }
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             bundle.putString("campus",campus);
             fragment1.setArguments(bundle);
             loadFragment(fragment1);
-            setTitle("Connectwithseniors");
+            setTitle(student);
         }
 
         final Fragment[] fragment = {new OnCampusFragment()};
@@ -110,10 +109,11 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Log.d(TAG, "onNavigationItemSelected: item : "+item);
                 FirebaseUser user =mAuth.getCurrentUser();
+                setTitle("ConnectWithSeniors");
 
                 switch (item.getItemId()){
                     case R.id.homeNV:
-//                        loadFragment(new HomeFragment());
+
                         getSupportFragmentManager().beginTransaction().remove(fragment[0]).commit();
                         drawerLayout.closeDrawer(GravityCompat.START);
 
@@ -168,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
+        setTitle("ConnectWithSeniors");
+
         drawerLayout=findViewById(R.id.drawer_layout);
         toolbar=findViewById(R.id.toolbar);
         frameLayout=findViewById(R.id.frame);
@@ -193,14 +195,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, account.getDisplayName()+" logged in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Welcome : " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
                     Log.d(TAG, "onComplete: "+account.getDisplayName()+" logged in");
                     FirebaseUser user=mAuth.getCurrentUser();
                     if (mAuth.getCurrentUser()!=null){
                         google_img.setVisibility(View.INVISIBLE);
                     }
                 }else {
-                    Toast.makeText(MainActivity.this, "error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "error : ", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -212,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
 
-        setTitle("Connectwithseniors");
+        setTitle("ConnectWithSeniors");
         drawerLayout.closeDrawer(GravityCompat.START);
     }
 
@@ -241,7 +243,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
-
 }

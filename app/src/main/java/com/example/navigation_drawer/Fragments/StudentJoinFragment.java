@@ -129,7 +129,8 @@ public class StudentJoinFragment extends Fragment {
         addImg=view.findViewById(R.id.addPersonData);
         mapArrayList=new ArrayList<HashMap<String,String>>();
 
-        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college").child("bit").child("2022").child(campus).child(student).child("details");
+        mRef= FirebaseDatabase.getInstance().getReference().child("Connectwithseniors").child("data").child("college")
+                .child("bit").child("2022").child(campus).child(student).child("details");
 
         adapter=new StudentAdapter(getActivity(),mapArrayList,campus,student);
         RecyclerView mRecyclerView=view.findViewById(R.id.homeFullRecyclerView3);

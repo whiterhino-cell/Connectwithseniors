@@ -6,7 +6,6 @@
     android:background="@drawable/pic002"
     tools:context=".Fragments.OnCampusFragment">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,17 +15,14 @@
             android:text="On Campus"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:gravity="center"
             android:layout_centerInParent="true"
             />
 
-
-        <!-- TODO: Update blank fragment layout -->
         <GridView
+            android:id="@+id/grid_view_on_campus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/grid_view_on_campus"
-            android:numColumns="2"/>
+            android:numColumns="2" />
         <ImageView
             android:id="@+id/addPersonOnCampus"
 

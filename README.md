@@ -30,10 +30,9 @@ experiences and preparation strategies from seniors.
 <img src="https://github.com/whiterhino-cell/Connectwithseniors/blob/main/images/signIn.jpg" width=400 height=700>
 
 - **Choosing account for signIn**
-<img src="https://github.com/whiterhino-cell/Connectwithseniors/blob/main/images/account.jpeg" width=400 height=700>
+<img src="https://github.com/whiterhino-cell/Connectwithseniors/blob/main/images/acc.jpg" width=400 height=700>
 
-- **Welcome Page**
-<img src="https://github.com/whiterhino-cell/Connectwithseniors/blob/main/images/welcome.jpg" width=400 height=700>
+
 
 - **Navigation Drawer**
 <img src="https://github.com/whiterhino-cell/Connectwithseniors/blob/main/images/nav_drawer.jpg" width=400 height=700>
